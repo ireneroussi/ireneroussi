@@ -1,0 +1,37 @@
+        
+       {% extends 'entries/base.html' %}
+
+      
+       {% block content %} 
+
+       
+    
+        <!-- Side Widget -->
+        
+        <div class="col-md-4">
+
+          <!-- Side Widget -->
+          <div  class="card my-4">
+              <h5  class="card-header text-center">Users Information</h5>
+              <div  class="card-body">
+                <ul  class="list-unstyled mb-0">
+                  
+                    
+                    <li>
+                      <p > <strong> Name:</strong> {{ user.first_name }}   </p>
+                  </li>
+                  <li>
+                    <p > <strong> Surname:</strong> {{ user.last_name }}  </p>
+                </li>
+                </ul> 
+                
+              </div>
+              
+            </div>
+              <h6>Deactivate account:<a href="{% url 'delete_profile' %}"> Here</a></h6>   
+            </div>
+          </div>
+         <hr>
+         <br><br>
+        {% endblock %}
+        

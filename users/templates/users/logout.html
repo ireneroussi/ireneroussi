@@ -1,0 +1,47 @@
+{% extends 'entries/base.html' %}
+
+{% block content %}
+<style>
+  .logout {
+    background-color: white;
+    color: black;
+    margin: 20px;
+    padding: 20px;
+  }
+  </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ 
+<div class="logout">
+  <h4><center> THANK YOU FOR VISITING MY BLOG </center></h4> <br>
+  <h4 class="text-center"> <center> WAIT FOR YOU SOON !!!</center> </h4>
+  <h6 class="text-center">Click here if you want to log  in ! <br> <a href="{% url 'login' %}">LOG IN</a></h6>
+
+
+
+</div> 
+</body>
+</html>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+{% endblock %}

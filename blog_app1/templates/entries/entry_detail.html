@@ -1,0 +1,93 @@
+{% extends 'entries/base.html' %}
+
+{% block content %}
+
+
+
+
+<!--                  Blog Entries Column               -->
+<div class="col-md-8">
+    <a href="{% url 'blog-home' %}">Back to home</a>
+
+
+
+
+    <!--                   Blog Post                    -->
+    <div class="card mb-4 mt-4">
+      <div class="card-body">
+        <h2 class="card-title">{{ object.entry_title }}</h2>
+        <p class="card-text">{{ object.entry_text|linebreaks }}</p>
+       
+      <div class="card-footer text-muted">
+        Posted on {{ object.entry_date }} by
+        <span class= "text-info mr-2">{{ object.entry_author }}</span>
+
+   <hr>
+
+
+
+
+  <!--                          likes  section                    -->
+
+
+
+  
+
+  <form action="{% url 'like_post' pk=entry.pk %}" method="POST">
+
+
+    {% csrf_token %}
+   
+    
+     
+
+    <button type="submit" name="entry_id" value="{{ entry.id }}" class="btn btn-primary" > Like  </button>
+
+    
+     <hr>
+     Total Likes :  {{ entry.likes.count }}
+
+  </form>
+      
+
+
+
+
+        <!--                COMMENTS SECTION            -->
+       
+
+<br> <br>
+<hr>
+
+
+  
+  <h3> <a href="{% url 'add_comment' pk=entry.pk %}">Leave a comment</a> </h3>
+
+<div class="main-comment-section">
+  
+   Number of comments: {{ entry.comments.count }} 
+  {% for comment in entry.comments.all %}
+  <blockquote class="blockquote">
+     <p class="mb-0">{{ comment.content }}</p>
+    
+     <footer class="blockquote-footer"> by <cite title="Source Title">{{ comment.user |capfirst  }}</cite></footer>
+    <h6> created at : {{comment.created}} </h6>
+     
+  </blockquote>
+  {% empty %}
+  <p>There are no comments!</p>
+  {% endfor %}
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+{% endblock %}
+
